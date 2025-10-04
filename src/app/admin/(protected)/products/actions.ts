@@ -127,7 +127,9 @@ export async function updateProduct(prevState: any, formData: FormData): Promise
             categoryId,
             subCategoryId,
             isFeatured,
-            imageUrls: newImageUrls.length > 0 ? newImageUrls : existingProduct.imageUrls,
+            imageUrls: newImageUrls.length > 0 
+              ? [...existingProduct.imageUrls, ...newImageUrls] 
+              : existingProduct.imageUrls,
             customizationIds,
         };
 
